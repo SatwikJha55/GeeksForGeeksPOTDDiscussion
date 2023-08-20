@@ -1,7 +1,6 @@
 # GeeksForGeeksPOTDDiscussion
 Engage in dynamic coding discourse at Geeks for Geeks' Problem of the Day (POTD) on GitHub. Share insights, strategies &amp; solutions with coding enthusiasts worldwide! 🚀👩‍💻
 
-Description:
 Welcome to the Geeks For Geeks Problem of the Day (POTD) Discussion repository on GitHub! This repository serves as a hub for geeks, developers, and coding enthusiasts who are passionate about improving their problem-solving skills, algorithmic thinking, and coding expertise.
 
 Every day, the Geeks For Geeks team presents a challenging coding problem as the Problem of the Day. These problems cover a wide range of topics including data structures, algorithms, dynamic programming, graph theory, and more. Solving these problems not only sharpens your coding skills but also enhances your understanding of core computer science concepts.
