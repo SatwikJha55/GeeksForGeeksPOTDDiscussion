@@ -1,44 +1,46 @@
-#include <bits/stdc++.h>
+class Solution {
+public:
+    int count(int arr[], int n, int x) {
+        // Find the first occurrence of x
+        int firstOccurrence = -1;
+        int left = 0, right = n - 1;
 
-using namespace std;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
 
-int numberOfBeautifulIntegers(int low, int high, int k);
-
-int main(){
-    int low, high, k;
-    cin >> low >> high >> k;
-
-    cout << numberOfBeautifulIntegers(low, high, k) << endl;
-
-
-    return 0;
-}
-
-int numberOfBeautifulIntegers(int low, int high, int k){
-    int beautifulCount = 0;
-    
-    if(low % k != 0)
-        low = (low / k + 1) * k;
-
-    for (int num = low; num <= high; num += k) {
-            int evenDigits = 0, oddDigits = 0;
-            int tempNum = num;
-            
-            while (tempNum > 0) {
-                int digit = tempNum % 10;
-                
-                if (digit % 2 == 0)
-                    evenDigits++;
-                else 
-                    oddDigits++;
-
-                tempNum /= 10;
+            if (arr[mid] == x) {
+                firstOccurrence = mid;
+                right = mid - 1; // Search in the left half
+            } else if (arr[mid] < x) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
             }
-            
-            if (evenDigits == oddDigits) {
-                beautifulCount++;
+        }
+
+        // If x is not present, return 0
+        if (firstOccurrence == -1) {
+            return 0;
+        }
+
+        // Find the last occurrence of x
+        int lastOccurrence = -1;
+        left = 0, right = n - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (arr[mid] == x) {
+                lastOccurrence = mid;
+                left = mid + 1; // Search in the right half
+            } else if (arr[mid] < x) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
             }
+        }
+
+        // Calculate and return the count
+        return (lastOccurrence - firstOccurrence) + 1;
     }
-        
-        return beautifulCount;
-}
+};
